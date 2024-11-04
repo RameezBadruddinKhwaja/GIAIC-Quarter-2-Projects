@@ -5,4 +5,4 @@ function toggleSection(contentId: string): void {
     }
 }
 
-export {}; 
+export {}; // This ensures the file is treated as a module
