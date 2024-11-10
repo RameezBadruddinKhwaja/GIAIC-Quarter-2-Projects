@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add html2pdf library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>Resume Builder</h1>
+            <form id="resumeForm">
+                <!-- Personal Information -->
+                <div class="section-title">Personal Information</div>
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" required>
+                    <div class="error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
+                    <div class="error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone">
+                </div>
+
+                <!-- Education -->
+                <div class="section-title">Education</div>
+                <div id="education-fields" class="dynamic-fields">
+                    <!-- Education entries will be added here -->
+                </div>
+                <button type="button" class="add-button" id="add-education">Add Education</button>
+
+                <!-- Work Experience -->
+                <div class="section-title">Work Experience</div>
+                <div id="experience-fields" class="dynamic-fields">
+                    <!-- Experience entries will be added here -->
+                </div>
+                <button type="button" class="add-button" id="add-experience">Add Experience</button>
+
+                <!-- Skills -->
+                <div class="section-title">Skills</div>
+                <div class="form-group">
+                    <label for="skills">Skills (comma-separated)</label>
+                    <textarea id="skills" rows="3"></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit">Update Preview</button>
+                    <button type="button" id="downloadPdf" class="download-button">Download PDF</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="preview-section">
+            <h1>Resume Preview</h1>
+            <div id="resume-preview">
+                <!-- Resume preview will be generated here -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+git add Milestone3/index.html
