@@ -60,7 +60,7 @@ const Portfolio: React.FC = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Hi, I'm Rameez B. Khwaja
+            Hi, I&apos;m Rameez B. Khwaja
           </h1>
           <div className="text-xl md:text-2xl text-blue-400 mb-8">
             <TypingAnimation words={animatedWords} />
@@ -71,14 +71,13 @@ const Portfolio: React.FC = () => {
       {/* About Section */}
       <section className="py-16 bg-gray-800">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">About Me</h2>
+          <h2 className="text-3xl font-bold mb-8">About Me</h2><br></br>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-2xl font-semibold mb-4">Personal Information</h3>
               <ul className="space-y-2">
                 <li>• Full Name: Rameez Badruddin Khwaja</li>
                 <li>• Location: Karachi, Pakistan</li>
-                
               </ul>
             </div>
             <div>
