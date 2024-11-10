@@ -214,6 +214,7 @@ button:hover {
     }
 }
 
+
 /* Print styles for PDF generation */
 @media print {
     body * {

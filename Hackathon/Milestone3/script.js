@@ -4,7 +4,8 @@ var ResumeBuilder = /** @class */ (function () {
             personalInfo: {
                 fullName: '',
                 email: '',
-                phone: ''
+                phone: '',
+                birthDate: ''
             },
             education: [],
             experience: [],
@@ -22,7 +23,7 @@ var ResumeBuilder = /** @class */ (function () {
             var educationFields = document.getElementById('education-fields');
             var fieldGroup = document.createElement('div');
             fieldGroup.className = 'field-group';
-            fieldGroup.innerHTML = "\n                <input type=\"text\" placeholder=\"School\" required>\n                <input type=\"text\" placeholder=\"Degree\" required>\n                <input type=\"text\" placeholder=\"Graduation Year\" required>\n                <button type=\"button\" class=\"remove-button\">Remove</button>\n            ";
+            fieldGroup.innerHTML = "\n                <input type=\"text\" placeholder=\"Institution\" required>\n                <input type=\"text\" placeholder=\"Details\" required>\n                <input type=\"text\" placeholder=\"Year\" required>\n                <button type=\"button\" class=\"remove-button\">Remove</button>\n            ";
             educationFields === null || educationFields === void 0 ? void 0 : educationFields.appendChild(fieldGroup);
         });
         // Add Experience Field
@@ -30,7 +31,7 @@ var ResumeBuilder = /** @class */ (function () {
             var experienceFields = document.getElementById('experience-fields');
             var fieldGroup = document.createElement('div');
             fieldGroup.className = 'field-group';
-            fieldGroup.innerHTML = "\n                <input type=\"text\" placeholder=\"Company\" required>\n                <input type=\"text\" placeholder=\"Position\" required>\n                <input type=\"text\" placeholder=\"Start Date\" required>\n                <input type=\"text\" placeholder=\"End Date\" required>\n                <textarea placeholder=\"Description\" required rows=\"3\"></textarea>\n                <button type=\"button\" class=\"remove-button\">Remove</button>\n            ";
+            fieldGroup.innerHTML = "\n                <input type=\"text\" placeholder=\"Organization\" required>\n                <input type=\"text\" placeholder=\"Position\" required>\n                <input type=\"text\" placeholder=\"Start Date\" required>\n                <input type=\"text\" placeholder=\"End Date\" required>\n                <textarea placeholder=\"Description\" required rows=\"3\"></textarea>\n                <button type=\"button\" class=\"remove-button\">Remove</button>\n            ";
             experienceFields === null || experienceFields === void 0 ? void 0 : experienceFields.appendChild(fieldGroup);
         });
         // Remove Field Groups
@@ -64,6 +65,48 @@ var ResumeBuilder = /** @class */ (function () {
             });
         });
     };
+    ResumeBuilder.prototype.updateResume = function () {
+        var _this = this;
+        // Update Personal Info
+        this.resume.personalInfo = {
+            fullName: document.getElementById('fullName').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            birthDate: document.getElementById('birthDate').value
+        };
+        // Update Education
+        this.resume.education = [];
+        var educationFields = document.querySelectorAll('#education-fields .field-group');
+        educationFields.forEach(function (field) {
+            var inputs = field.querySelectorAll('input');
+            _this.resume.education.push({
+                institution: inputs[0].value,
+                details: inputs[1].value,
+                year: inputs[2].value
+            });
+        });
+        // Update Experience
+        this.resume.experience = [];
+        var experienceFields = document.querySelectorAll('#experience-fields .field-group');
+        experienceFields.forEach(function (field) {
+            var _a;
+            var inputs = field.querySelectorAll('input');
+            var description = ((_a = field.querySelector('textarea')) === null || _a === void 0 ? void 0 : _a.value) || '';
+            _this.resume.experience.push({
+                organization: inputs[0].value,
+                position: inputs[1].value,
+                startDate: inputs[2].value,
+                endDate: inputs[3].value,
+                description: description
+            });
+        });
+        // Update Skills
+        var skillsInput = document.getElementById('skills').value;
+        this.resume.skills = skillsInput.split(',').map(function (skill) { return skill.trim(); }).filter(function (skill) { return skill; });
+    };
+    ResumeBuilder.prototype.generatePreview = function () {
+        this.previewElement.innerHTML = "\n            <div class=\"preview-header\">\n                <h2>".concat(this.resume.personalInfo.fullName, "</h2>\n                <p>").concat(this.resume.personalInfo.email, " | ").concat(this.resume.personalInfo.phone, "</p>\n                <p>Date of Birth: ").concat(this.resume.personalInfo.birthDate, "</p>\n            </div>\n\n            <h2>Education</h2>\n            ").concat(this.resume.education.map(function (edu) { return " \n                <div class=\"education-item\">\n                    <h3>".concat(edu.institution, "</h3>\n                    <p>").concat(edu.details, "</p>\n                    <p>Year: ").concat(edu.year, "</p>\n                </div>\n            "); }).join(''), "\n\n            <h2>Work Experience</h2>\n            ").concat(this.resume.experience.map(function (exp) { return "\n                <div class=\"experience-item\">\n                    <h3>".concat(exp.organization, "</h3>\n                    <p><strong>").concat(exp.position, "</strong></p>\n                    <p>").concat(exp.startDate, " - ").concat(exp.endDate, "</p>\n                    <p>").concat(exp.description, "</p>\n                </div>\n            "); }).join(''), "\n\n            ").concat(this.resume.skills.length > 0 ? "\n                <h2>Skills</h2>\n                <div class=\"skills-list\">\n                    ".concat(this.resume.skills.map(function (skill) { return "\n                        <span class=\"skill-item\">".concat(skill, "</span>\n                    "); }).join(''), "\n                </div>\n            ") : '', "\n        ");
+    };
     ResumeBuilder.prototype.validateForm = function () {
         var isValid = true;
         var requiredFields = this.form.querySelectorAll('[required]');
@@ -86,47 +129,6 @@ var ResumeBuilder = /** @class */ (function () {
         });
         return isValid;
     };
-    ResumeBuilder.prototype.updateResume = function () {
-        var _this = this;
-        // Update Personal Info
-        this.resume.personalInfo = {
-            fullName: document.getElementById('fullName').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value
-        };
-        // Update Education
-        this.resume.education = [];
-        var educationFields = document.querySelectorAll('#education-fields .field-group');
-        educationFields.forEach(function (field) {
-            var inputs = field.querySelectorAll('input');
-            _this.resume.education.push({
-                school: inputs[0].value,
-                degree: inputs[1].value,
-                graduationYear: inputs[2].value
-            });
-        });
-        // Update Experience
-        this.resume.experience = [];
-        var experienceFields = document.querySelectorAll('#experience-fields .field-group');
-        experienceFields.forEach(function (field) {
-            var _a;
-            var inputs = field.querySelectorAll('input');
-            var description = ((_a = field.querySelector('textarea')) === null || _a === void 0 ? void 0 : _a.value) || '';
-            _this.resume.experience.push({
-                company: inputs[0].value,
-                position: inputs[1].value,
-                startDate: inputs[2].value,
-                endDate: inputs[3].value,
-                description: description
-            });
-        });
-        // Update Skills
-        var skillsInput = document.getElementById('skills').value;
-        this.resume.skills = skillsInput.split(',').map(function (skill) { return skill.trim(); }).filter(function (skill) { return skill; });
-    };
-    ResumeBuilder.prototype.generatePreview = function () {
-        this.previewElement.innerHTML = "\n            <div class=\"preview-header\">\n                <h2>".concat(this.resume.personalInfo.fullName, "</h2>\n                <p>").concat(this.resume.personalInfo.email, " | ").concat(this.resume.personalInfo.phone, "</p>\n            </div>\n\n            <h2>Education</h2>\n            ").concat(this.resume.education.map(function (edu) { return "\n                <div class=\"education-item\">\n                    <h3>".concat(edu.school, "</h3>\n                    <p>").concat(edu.degree, "</p>\n                    <p>Graduated: ").concat(edu.graduationYear, "</p>\n                </div>\n            "); }).join(''), "\n\n            <h2>Work Experience</h2>\n            ").concat(this.resume.experience.map(function (exp) { return "\n                <div class=\"experience-item\">\n                    <h3>".concat(exp.company, "</h3>\n                    <p><strong>").concat(exp.position, "</strong></p>\n                    <p>").concat(exp.startDate, " - ").concat(exp.endDate, "</p>\n                    <p>").concat(exp.description, "</p>\n                </div>\n            "); }).join(''), "\n\n            ").concat(this.resume.skills.length > 0 ? "\n                <h2>Skills</h2>\n                <div class=\"skills-list\">\n                    ".concat(this.resume.skills.map(function (skill) { return "\n                        <span class=\"skill-item\">".concat(skill, "</span>\n                    "); }).join(''), "\n                </div>\n            ") : '', "\n        ");
-    };
     ResumeBuilder.prototype.generatePDF = function () {
         var element = this.previewElement;
         var options = {
@@ -136,12 +138,10 @@ var ResumeBuilder = /** @class */ (function () {
             html2canvas: { scale: 2 },
             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
-        // Using the html2pdf library loaded in HTML
         window.html2pdf().set(options).from(element).save();
     };
     return ResumeBuilder;
 }());
-// Initialize the Resume Builder when the DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
     new ResumeBuilder();
 });
