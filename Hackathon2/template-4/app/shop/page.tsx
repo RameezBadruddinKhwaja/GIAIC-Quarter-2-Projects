@@ -9,7 +9,7 @@ import { Grid, List } from 'lucide-react';
 
 export default function ShopPage() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar] = useState(true);
 
   return (
     <div className="bg-purple-50 min-h-screen py-8">

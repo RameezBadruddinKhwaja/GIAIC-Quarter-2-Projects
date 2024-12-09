@@ -4,7 +4,11 @@ import Image from 'next/image';
 import { blogPosts } from '@/lib/data';
 import { Calendar, User, Tag } from 'lucide-react';
 
-export default function BlogPostPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: { id: string };
+}
+
+export default function BlogPostPage({ params }: PageProps) {
   const post = blogPosts.find((p) => p.id === params.id);
 
   if (!post) {

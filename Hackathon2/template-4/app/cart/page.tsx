@@ -7,7 +7,7 @@ import { products } from '@/lib/data';
 import { Trash2, ShoppingBag } from 'lucide-react';
 
 export default function CartPage() {
-  const [cartItems, setCartItems] = useState([
+  const [cartItems] = useState([
     { productId: '1', quantity: 2 },
     { productId: '2', quantity: 1 },
   ]);

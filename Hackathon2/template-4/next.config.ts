@@ -2,9 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['images.unsplash.com'],  // Allow Unsplash domain
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**", // Allow all paths under Unsplash
+      },
+    ],
   },
-  // Other Next.js configuration options go here (if any)
+  // Add other Next.js configuration options here if needed
 };
 
 export default nextConfig;

@@ -5,7 +5,11 @@ import Image from 'next/image';
 import { products } from '@/lib/data';
 import { ShoppingCart, Heart, Share2 } from 'lucide-react';
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+export default function ProductPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const product = products.find((p) => p.id === params.id);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);

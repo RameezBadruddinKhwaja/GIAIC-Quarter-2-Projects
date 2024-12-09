@@ -10,7 +10,7 @@ export default function AboutPage() {
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">About Hekto</h1>
             <p className="text-lg text-purple-100 max-w-2xl mx-auto">
-              We're passionate about bringing modern, stylish furniture to your home
+              We&apos;sre passionate about bringing modern, stylish furniture to your home
               at affordable prices.
             </p>
           </div>
