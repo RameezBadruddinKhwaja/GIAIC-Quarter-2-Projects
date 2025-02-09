@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Forge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="resume-builder-container">
+        <div class="form-section">
+            <div class="form-header">
+                <h1>Resume Forge</h1>
+                <p>Craft Your Professional Narrative</p>
+            </div>
+
+            <form id="resumeForm" class="dynamic-form">
+                <div class="form-section-header">
+                    <i class="fas fa-user"></i>
+                    <h2>Personal Information</h2>
+                </div>
+                <div class="form-grid">
+                    <input type="text" id="fullName" placeholder="Full Name" data-validate="name" required>
+                    <input type="email" id="email" placeholder="Professional Email" required>
+                    <input type="tel" id="phone" placeholder="Contact Number" data-validate="phone" required>
+                    <input type="text" id="address" placeholder="Current Location" required>
+                </div>
+
+                <div class="form-section-header">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h2>Educational Background</h2>
+                    <button type="button" id="addEducation" class="add-entry-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div id="educationEntries" class="dynamic-entries">
+                    <div class="entry-card">
+                        <input type="text" placeholder="Institution Name" data-validate="name" required>
+                        <input type="text" placeholder="Degree Earned" data-validate="name" required>
+                        <input type="text" placeholder="Graduation Year" data-validate="year" required>
+                        <button type="button" class="remove-entry-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-section-header">
+                    <i class="fas fa-briefcase"></i>
+                    <h2>Professional Experience</h2>
+                    <button type="button" id="addExperience" class="add-entry-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div id="experienceEntries" class="dynamic-entries">
+                    <div class="entry-card">
+                        <input type="text" placeholder="Company Name" data-validate="name" required>
+                        <input type="text" placeholder="Job Title" data-validate="name" required>
+                        <input type="text" placeholder="Duration" required>
+                        <textarea placeholder="Key Responsibilities" required></textarea>
+                        <button type="button" class="remove-entry-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-section-header">
+                    <i class="fas fa-chart-pie"></i>
+                    <h2>Professional Skills</h2>
+                    <button type="button" id="addSkill" class="add-entry-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div id="skillEntries" class="dynamic-entries">
+                    <div class="entry-card">
+                        <input type="text" placeholder="Skill Name" data-validate="name" required>
+                        <select required>
+                            <option value="">Proficiency Level</option>
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Advanced</option>
+                            <option>Expert</option>
+                        </select>
+                        <button type="button" class="remove-entry-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="generateResume" class="primary-btn">
+                        <i class="fas fa-magic"></i> Generate Resume
+                    </button>
+                    <button type="button" id="downloadResume" class="secondary-btn">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="preview-section">
+            <div class="preview-header">
+                <h2>Resume Preview</h2>
+                <p>Your professional story unfolds here</p>
+            </div>
+            <div id="resumePreview" class="preview-content"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>window.jsPDF = window.jspdf.jsPDF;</script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f4f6f7;
+  --text-color: #2c3e50;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all var(--transition-speed) ease;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.resume-builder-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 2rem auto;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.form-section, .preview-section {
+  width: 50%;
+  padding: 2rem;
+}
+
+.form-section {
+  background-color: #fcfcfe;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h1 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.form-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+}
+
+.form-section-header i {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.form-grid, .dynamic-entries {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-grid input, 
+.entry-card input, 
+.entry-card textarea, 
+.entry-card select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.add-entry-btn, .remove-entry-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.remove-entry-btn {
+  color: #e74c3c;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primary-btn, .secondary-btn {
+  flex-grow: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.primary-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.secondary-btn {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.preview-section {
+  background-color: #f9f9fc;
+}
+
+.preview-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#resumePreview {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 1024px) {
+  .resume-builder-container {
+      flex-direction: column;
+  }
+  
+  .form-section, .preview-section {
+      width: 100%;
+  }
+}
