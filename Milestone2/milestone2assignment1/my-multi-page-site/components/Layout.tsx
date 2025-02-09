@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
-import '@/styles/globals.css';
+
 
 const Layout = ({ children }: { children: ReactNode }) => (
   <div className="container">
