@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --foreground: #111827;
+  --background: #f9fafb;
+  --accent: #e5e7eb;
+  --primary: #3b82f6;
+  --secondary: #f3f4f6;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #f9fafb;
+    --background: #1f2937;
+    --accent: #374151;
+    --primary: #60a5fa;
+    --secondary: #4b5563;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
