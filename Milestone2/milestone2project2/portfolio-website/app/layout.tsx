@@ -1,3 +1,4 @@
+// app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -26,17 +27,17 @@ export default function RootLayout({
             </Link>
             <ul className="flex space-x-6">
               <li>
-                <Link href="/" className="text-gray-700 hover:text-primary">
+                <Link href="/" className="text-gray-900 hover:text-primary">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-700 hover:text-primary">
+                <Link href="/about" className="text-gray-900 hover:text-primary">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-700 hover:text-primary">
+                <Link href="/contact" className="text-gray-900 hover:text-primary">
                   Contact
                 </Link>
               </li>

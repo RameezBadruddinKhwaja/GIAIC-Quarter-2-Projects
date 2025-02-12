@@ -1,3 +1,4 @@
+// app/about/page.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -13,13 +14,18 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl font-extrabold text-gray-800 mb-8 text-center">About Me</h1>
+          <h1 className="text-5xl font-extrabold text-gray-900 mb-8 text-center">
+            About Me
+          </h1>
           
           {/* Education Section */}
           <div className="bg-white shadow-md rounded-lg p-8 mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Education</h2>
-            <p className="text-gray-600 text-lg">
-              Completed Associate Degree in Computer Information Systems (ADP-CIS) at Hamdard University in 2025.
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Education
+            </h2>
+            <p className="text-gray-800 text-lg">
+              Completed Associate Degree in Computer Information Systems (ADP-CIS)
+              at Hamdard University in 2025.
             </p>
           </div>
 
@@ -31,7 +37,9 @@ export default function About() {
             className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
           >
             <div className="bg-white shadow-md rounded-lg p-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Technical Skills</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Technical Skills
+              </h2>
               <div className="space-y-6">
                 <SkillCategory
                   icon={<Globe className="w-6 h-6 text-primary" />}
@@ -65,17 +73,23 @@ export default function About() {
             </div>
 
             <div className="bg-white shadow-md rounded-lg p-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Languages & Learning</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Languages & Learning
+              </h2>
               <div className="mb-6">
-                <h3 className="text-xl font-semibold text-gray-700 mb-2">Languages</h3>
-                <ul className="list-disc list-inside text-gray-600 space-y-1">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Languages
+                </h3>
+                <ul className="list-disc list-inside text-gray-800 space-y-1">
                   <li>English</li>
                   <li>Urdu</li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-700 mb-2">Ongoing Learning</h3>
-                <ul className="list-disc list-inside text-gray-600 space-y-1">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Ongoing Learning
+                </h3>
+                <ul className="list-disc list-inside text-gray-800 space-y-1">
                   <li>Next.js</li>
                   <li>TypeScript</li>
                   <li>Full-Stack Development</li>
@@ -92,11 +106,17 @@ export default function About() {
             transition={{ delay: 0.5 }}
             className="bg-white shadow-md rounded-lg p-8"
           >
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Experience</h2>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
-              <li>Collaborated on GitHub repositories for admin panel development</li>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Experience
+            </h2>
+            <ul className="list-disc list-inside text-gray-800 space-y-2">
+              <li>
+                Collaborated on GitHub repositories for admin panel development
+              </li>
               <li>Successfully deployed multiple projects on Vercel</li>
-              <li>Hands-on experience with Bootstrap and jQuery in IP Lab</li>
+              <li>
+                Hands-on experience with Bootstrap and jQuery in IP Lab
+              </li>
             </ul>
           </motion.div>
         </motion.div>
@@ -118,7 +138,7 @@ function SkillCategory({
     <div>
       <div className="flex items-center gap-3 mb-2">
         {icon}
-        <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+        <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
       </div>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (

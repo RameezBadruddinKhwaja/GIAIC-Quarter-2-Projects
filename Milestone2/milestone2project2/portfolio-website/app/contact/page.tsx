@@ -1,3 +1,4 @@
+// app/contact/page.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -13,7 +14,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Integrate with your backend or email service here.
     console.log(formData);
     alert("Message sent!");
     setFormData({ name: "", email: "", message: "" });
@@ -28,7 +28,9 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl font-extrabold text-gray-800 mb-12 text-center">Contact Me</h1>
+          <h1 className="text-5xl font-extrabold text-gray-900 mb-12 text-center">
+            Contact Me
+          </h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Contact Information */}
@@ -38,8 +40,10 @@ export default function Contact() {
               transition={{ delay: 0.3 }}
               className="bg-white shadow-md rounded-lg p-8"
             >
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h2>
-              <div className="space-y-4 text-gray-600">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Get in Touch
+              </h2>
+              <div className="space-y-4 text-gray-800">
                 <div className="flex items-center gap-3">
                   <Mail className="w-6 h-6 text-primary" />
                   <span>rameezbader@gmail.com</span>
@@ -64,7 +68,7 @@ export default function Contact() {
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-xl font-semibold text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-xl font-semibold text-gray-900 mb-2">
                     Name
                   </label>
                   <input
@@ -79,7 +83,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-xl font-semibold text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-xl font-semibold text-gray-900 mb-2">
                     Email
                   </label>
                   <input
@@ -94,7 +98,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-xl font-semibold text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-xl font-semibold text-gray-900 mb-2">
                     Message
                   </label>
                   <textarea
