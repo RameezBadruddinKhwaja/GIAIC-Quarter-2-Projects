@@ -1,10 +1,13 @@
 import ProductCard from '../components/ProductCard';
 import { Product } from '../types';
 
-
 export default async function HomePage() {
-  
-  const res = await fetch('/api/products', { cache: 'no-store' });
+ 
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+
+  const res = await fetch(`${baseUrl}/api/products`, { cache: 'no-store' });
   const products: Product[] = await res.json();
 
   return (
