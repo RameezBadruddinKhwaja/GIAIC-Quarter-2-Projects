@@ -1,4 +1,5 @@
 'use client';
+
 import { createContext, useState, ReactNode } from 'react';
 import { Product } from '../types';
 
@@ -14,7 +15,7 @@ export const CartContext = createContext<CartContextType>({
   removeFromCart: () => {},
 });
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
+export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
   const addToCart = (product: Product) => {
@@ -30,4 +31,4 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </CartContext.Provider>
   );
-};
+}

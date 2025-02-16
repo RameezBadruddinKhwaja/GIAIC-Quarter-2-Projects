@@ -6,32 +6,26 @@ import Image from 'next/image';
 
 export default function CartPage() {
   const { cartItems, removeFromCart } = useContext(CartContext);
-
-  // Calculate the total price
   const total = cartItems.reduce((acc, item) => acc + item.price, 0);
 
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Shopping Cart</h1>
-
-      {/* If cart is empty, display a message */}
       {cartItems.length === 0 ? (
-        <p className="text-gray-600">Your cart is empty.</p>
+        <p className="text-gray-400">Your cart is empty.</p>
       ) : (
         <div className="space-y-4">
-          {/* Map through cart items */}
           {cartItems.map((item, index) => (
-            // Use a composite key to ensure uniqueness
             <div
               key={`${item.id}-${index}`}
-              className="flex items-center bg-white rounded-lg shadow p-4"
+              className="flex items-center bg-white rounded-lg shadow p-4 text-gray-800"
             >
               <div className="relative w-24 h-24">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  className="rounded"
+                  className="object-cover rounded"
                 />
               </div>
               <div className="flex-1 ml-4">
@@ -46,8 +40,6 @@ export default function CartPage() {
               </button>
             </div>
           ))}
-
-          {/* Display total price */}
           <div className="text-right text-2xl font-bold mt-4">
             Total: ${total.toFixed(2)}
           </div>
