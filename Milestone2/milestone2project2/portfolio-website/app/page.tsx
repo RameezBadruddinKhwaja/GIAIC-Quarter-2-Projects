@@ -140,8 +140,8 @@ const projects = [
     title: "Hekto Furniture App",
     description:
       "An innovative furniture shopping experience with modern design and advanced features.",
-    Url: "https://hekto-furniture-app.vercel.app/",
+    Url: "https://next-js-design-jam-2024-template-4.vercel.app/",
     sourceUrl:
-      "https://github.com/RameezBadruddinKhwaja/HektoFurnitureApp",
+      "https://github.com/RameezBadruddinKhwaja/next-js-design-jam-2024-template-4/tree/8f6e2d850acdfc3a66c808442c3cd2520fb9acf0/Hackathon2/next-jam-2024-template-4",
   },
 ];
