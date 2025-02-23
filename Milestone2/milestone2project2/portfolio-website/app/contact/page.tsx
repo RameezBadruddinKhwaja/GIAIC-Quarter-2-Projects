@@ -1,4 +1,3 @@
-// app/contact/page.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -22,7 +21,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-accent">
       <section className="container mx-auto px-4 py-16">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -31,14 +30,14 @@ export default function Contact() {
           <h1 className="text-5xl font-extrabold text-gray-900 mb-12 text-center">
             Contact Me
           </h1>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Contact Information */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-white shadow-md rounded-lg p-8"
+              className="bg-white shadow-md rounded-lg p-8 hover:shadow-[0_0_20px_rgba(0,120,255,0.8)] transition-shadow"
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Get in Touch
@@ -60,15 +59,18 @@ export default function Contact() {
             </motion.div>
 
             {/* Contact Form */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-white shadow-md rounded-lg p-8"
+              className="bg-white shadow-md rounded-lg p-8 hover:shadow-[0_0_20px_rgba(0,120,255,0.8)] transition-shadow"
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-xl font-semibold text-gray-900 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-xl font-semibold text-gray-900 mb-2"
+                  >
                     Name
                   </label>
                   <input
@@ -83,7 +85,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-xl font-semibold text-gray-900 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-xl font-semibold text-gray-900 mb-2"
+                  >
                     Email
                   </label>
                   <input
@@ -98,7 +103,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-xl font-semibold text-gray-900 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-xl font-semibold text-gray-900 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -112,9 +120,9 @@ export default function Contact() {
                     required
                   ></textarea>
                 </div>
-                <button 
+                <button
                   type="submit"
-                  className="w-full bg-primary text-white font-bold py-3 rounded-md hover:opacity-90 transition-opacity"
+                  className="w-full bg-primary text-white font-bold py-3 rounded-md hover:opacity-90 hover:shadow-[0_0_10px_rgba(0,120,255,0.8)] transition-opacity"
                 >
                   Send Message
                 </button>
